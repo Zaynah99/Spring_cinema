@@ -51,23 +51,4 @@ public class MovieController {
         return new ResponseEntity<>(movie, HttpStatus.CREATED);
     }
 
-
-
-//@PostMapping
-//    public ResponseEntity<Movie> addNewMovie(@RequestParam String title, @RequestParam String rating, @RequestParam int duration){
-//        movieService.addMovies(title, rating, duration);
-//        Movie movie = new Movie(title, rating , duration);
-//        return new ResponseEntity<>(movie, HttpStatus.CREATED);
-//    }
-//
-//
-//    @PatchMapping
-//    public ResponseEntity<Movie> deleteNewMovie(@RequestParam String title, @RequestParam String rating, @RequestParam int duration){
-//        movieService.removeMovies(title, rating, duration);
-//        Movie movie = new Movie(title, rating , duration);
-//        return new ResponseEntity<>(movie, HttpStatus.CREATED);
-//    }
-
-
-
 }
