@@ -45,13 +45,28 @@ public class MovieController {
     }
 
     @PatchMapping(value = "/{id}")//selects movie via id
-    {
-
+    public ResponseEntity<Movie> updateMovieById(@RequestParam String title, @RequestParam int rating, @RequestParam int duration){
+        movieService.updateMovie("Up", 5, 110);
+        Movie movie = new Movie(title, rating , duration);
+        return new ResponseEntity<>(movie, HttpStatus.CREATED);
     }
 
 
 
-
+//@PostMapping
+//    public ResponseEntity<Movie> addNewMovie(@RequestParam String title, @RequestParam String rating, @RequestParam int duration){
+//        movieService.addMovies(title, rating, duration);
+//        Movie movie = new Movie(title, rating , duration);
+//        return new ResponseEntity<>(movie, HttpStatus.CREATED);
+//    }
+//
+//
+//    @PatchMapping
+//    public ResponseEntity<Movie> deleteNewMovie(@RequestParam String title, @RequestParam String rating, @RequestParam int duration){
+//        movieService.removeMovies(title, rating, duration);
+//        Movie movie = new Movie(title, rating , duration);
+//        return new ResponseEntity<>(movie, HttpStatus.CREATED);
+//    }
 
 
 
