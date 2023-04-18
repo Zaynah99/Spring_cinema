@@ -2,6 +2,7 @@ package com.example.spring_cinema.controllers;
 
 import com.example.spring_cinema.models.Movie;
 import com.example.spring_cinema.services.MovieService;
+import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +33,8 @@ public class MovieController {
     }
 
 
-
-    @PatchMapping(value = "/{id}")//updates partially
+//EXTENSION
+    @GetMapping(value = "/{id}")//selects a singular movie through id
     public ResponseEntity<Movie> getMovieById (@PathVariable Long id){
         Optional <Movie> movie = movieService.getMovieById(id);
         if (movie.isPresent()){
@@ -41,8 +42,16 @@ public class MovieController {
         } else {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
+    }
+
+    @PatchMapping(value = "/{id}")//selects movie via id
+    {
 
     }
+
+
+
+
 
 
 
