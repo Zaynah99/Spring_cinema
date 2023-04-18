@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping (value = "/movies") //sets default route
@@ -28,9 +29,20 @@ public class MovieController {
     public ResponseEntity<List<Movie>> postMovie(@RequestBody Movie movie){ //adding to movies
         movieService.saveMovie(movie); //saving movie
         return new ResponseEntity<>(movieService.getAllMovies(), HttpStatus.CREATED); // allow returning more than one item
-
     }
 
+
+
+    @PatchMapping(value = "/{id}")//updates partially
+    public ResponseEntity<Movie> getMovieById (@PathVariable Long id){
+        Optional <Movie> movie = movieService.getMovieById(id);
+        if (movie.isPresent()){
+            return new ResponseEntity<>(movie.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+
+    }
 
 
 
